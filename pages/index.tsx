@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import _ from 'lodash';
@@ -7,6 +6,7 @@ import Country from 'components/Country';
 import Layout from 'components/Layout';
 import { CountryType } from 'interfaces';
 import Search from 'components/Search';
+import { useState } from 'react';
 import ComboBox from 'components/ComboBox';
 
 interface Props {
