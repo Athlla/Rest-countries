@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowNarrowLeftIcon } from '@heroicons/react/solid';
@@ -71,7 +71,7 @@ const CountryDetail = ({ data }: Props) => {
             </div>
             <div className="w-full">
               <DetailData keyTitle="Border Countries">
-                {data.borders.map((country) => (
+                {data.borders?.map((country) => (
                   <Link href={`/${country}`} key={country}>
                     <a className="m-1 mt-0 mb-4">
                       <span className="px-6 py-1 border rounded-md cursor-pointer shadow-average">
@@ -89,24 +89,11 @@ const CountryDetail = ({ data }: Props) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const countries = await (
-    await fetch('https://restcountries.com/v3.1/all')
-  ).json();
-
-  const paths = countries.map((country) => ({
-    params: { country: country.cca3 },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const [data] = await (
-    await fetch(`https://restcountries.com/v3.1/alpha/${params.country}`)
+    await fetch(
+      `https://restcountries.com/v3.1/alpha/${context.params.country}`
+    )
   ).json();
 
   return {
