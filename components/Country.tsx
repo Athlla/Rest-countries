@@ -16,7 +16,7 @@ const Country = ({
   return (
     <Link href={`/${cca3}`}>
       <a>
-        <div className="w-64 bg-white rounded-md cursor-pointer shadow-average">
+        <div className="w-64 bg-white rounded-md cursor-pointer dark:bg-dark-blue shadow-average">
           <div className="relative overflow-hidden shadow-md rounded-t-md w-[256px] h-[128px] ">
             <Image
               src={flags.png}

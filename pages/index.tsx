@@ -37,7 +37,7 @@ const Home = ({ data, region }: Props) => {
 
   return (
     <Layout>
-      <div className="container mx-auto text-sm p-7 text-very-dark-blue">
+      <div className="container mx-auto text-sm p-7 text-very-dark-blue-text dark:text-white">
         <div className="flex flex-col items-start justify-between md:flex-row">
           <Search setData={searchHandler} searchValue={filteredData} />
           <ComboBox setRegion={selectHandler} region={region} />

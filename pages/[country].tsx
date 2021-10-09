@@ -29,13 +29,13 @@ const CountryDetail = ({ data }: Props) => {
       <div className="container mx-auto space-y-4 text-base p-7">
         <Link href="/">
           <a>
-            <button className="flex items-center px-6 py-1 space-x-3 border rounded-md shadow-average">
+            <button className="flex items-center px-6 py-1 space-x-3 bg-white border rounded-md dark:bg-dark-blue dark:border-dark-blue shadow-average">
               <ArrowNarrowLeftIcon className="w-4 text-dark-gray" />
               <p>Back</p>
             </button>
           </a>
         </Link>
-        <div className="flex flex-col gap-24 md:flex-row">
+        <div className="flex flex-col md:gap-24 md:flex-row">
           <div className="relative w-full md:w-1/2 h-72 sm:h-80 md:h-[60vh]">
             <Image
               src={data.flags.png}
@@ -74,7 +74,7 @@ const CountryDetail = ({ data }: Props) => {
                 {data.borders?.map((country) => (
                   <Link href={`/${country}`} key={country}>
                     <a className="m-1 mt-0 mb-4">
-                      <span className="px-6 py-1 border rounded-md cursor-pointer shadow-average">
+                      <span className="px-6 py-1 bg-white border rounded-md cursor-pointer dark:bg-dark-blue dark:border-dark-blue shadow-average">
                         {country}
                       </span>
                     </a>

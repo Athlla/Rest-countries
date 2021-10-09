@@ -18,11 +18,11 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap'
-            rel='stylesheet'
+            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+            rel="stylesheet"
           />
         </Head>
-        <body className='bg-very-light-gray'>
+        <body className="bg-very-light-gray dark:bg-very-dark-blue">
           <Main />
           <NextScript />
         </body>
