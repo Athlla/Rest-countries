@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <main className='text-sm p-7'>{children}</main>
+      <main>{children}</main>
     </>
   );
 };
