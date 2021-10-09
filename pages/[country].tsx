@@ -52,7 +52,7 @@ const CountryDetail = ({ data }: Props) => {
                 <DetailData keyTitle="Native Name">
                   {data.name.official}
                 </DetailData>
-                <DetailData keyTitle="Populations">
+                <DetailData keyTitle="Populations" number>
                   {data.population}
                 </DetailData>
                 <DetailData keyTitle="Region">{data.region}</DetailData>

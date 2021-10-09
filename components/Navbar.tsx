@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MoonIcon } from '@heroicons/react/outline';
+import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { useTheme } from 'next-themes';
 
 const Navbar = () => {
@@ -22,8 +22,12 @@ const Navbar = () => {
         </a>
       </Link>
       <div className="flex font-semibold cursor-pointer" onClick={themeHandler}>
-        <MoonIcon className="w-6 h-6 mr-2" />
-        <span>Dark Mode</span>
+        {theme === 'dark' ? (
+          <MoonIcon className="w-6 h-6 mr-2" />
+        ) : (
+          <SunIcon className="w-6 h-6 mr-2" />
+        )}
+        <span className="capitalize">{theme} Mode</span>
       </div>
     </nav>
   );

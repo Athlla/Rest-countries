@@ -31,7 +31,9 @@ const Country = ({
             <h3 className="mb-2 font-extrabold truncate 1-base">
               {name.common}
             </h3>
-            <DetailData keyTitle="Population">{population}</DetailData>
+            <DetailData keyTitle="Population" number>
+              {population}
+            </DetailData>
             <DetailData keyTitle="Region">{region}</DetailData>
             <DetailData keyTitle="Capital">{capital}</DetailData>
           </div>
