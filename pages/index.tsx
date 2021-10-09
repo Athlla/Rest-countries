@@ -15,38 +15,41 @@ interface Props {
 }
 
 const Home = ({ data, region }: Props) => {
-  const [filteredData, setFilteredData] = useState<CountryType[]>(data);
+  const [filteredData, setFilteredData] = useState<string>('');
 
   const router = useRouter();
 
   const searchHandler = (input: string) => {
-    setTimeout(() => {
-      setFilteredData(
-        data.filter((country) =>
-          _.lowerCase(country.name.official).includes(input)
-        )
-      );
-    }, 500);
+    setFilteredData(input);
   };
 
   const selectHandler = (input: string) => {
+    setFilteredData('');
     router.push({ pathname: '/', query: { region: input } });
-    setTimeout(() => {
-      router.reload();
-    }, 2000);
   };
+
+  const renderedData =
+    filteredData === ''
+      ? data
+      : data.filter((country) =>
+          _.lowerCase(country.name.official).includes(filteredData)
+        );
 
   return (
     <Layout>
       <div className="container mx-auto text-sm p-7 text-very-dark-blue">
         <div className="flex flex-col items-start justify-between md:flex-row">
-          <Search setData={searchHandler} />
+          <Search setData={searchHandler} searchValue={filteredData} />
           <ComboBox setRegion={selectHandler} region={region} />
         </div>
         <div className="flex flex-wrap gap-10 mx-auto w-one-column sm:w-two-columns lg:w-three-columns xl:w-four-columns 2xl:w-five-columns">
-          {filteredData.map((country) => (
-            <Country key={country.cca3} {...country} />
-          ))}
+          {renderedData.length > 0 ? (
+            renderedData.map((country) => (
+              <Country key={country.cca3} {...country} />
+            ))
+          ) : (
+            <p>No Country found...</p>
+          )}
         </div>
       </div>
     </Layout>
